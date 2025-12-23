@@ -22,8 +22,10 @@ export function Login() {
       // Navigate based on user role
       if (response.user.role === 'admin') {
         navigate('/admin');
+      } else if (response.user.role === 'financier') {
+        navigate('/investor');
       } else {
-        navigate('/');
+        navigate('/dashboard');
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed. Please try again.');
